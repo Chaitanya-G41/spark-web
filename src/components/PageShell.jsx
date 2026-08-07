@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
 
-const PageShell = ({ title, subtitle }) => {
+const PageShell = ({ title, subtitle, children }) => {
   return (
     <>
       {/* Hero banner — same style as Office Bearers */}
@@ -22,16 +22,20 @@ const PageShell = ({ title, subtitle }) => {
         </motion.div>
       </section>
 
-      {/* Content placeholder */}
-      <div className="bg-white min-h-[50vh] flex items-center justify-center px-6 py-24">
-        <div className="text-center">
-          <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-sparkBlue/5 flex items-center justify-center">
-            <span className="text-4xl">🚧</span>
+      {/* Content */}
+      {children ? (
+        children
+      ) : (
+        <div className="bg-white min-h-[50vh] flex items-center justify-center px-6 py-24">
+          <div className="text-center">
+            <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-sparkBlue/5 flex items-center justify-center">
+              <span className="text-4xl">🚧</span>
+            </div>
+            <h2 className="text-3xl font-black text-sparkBlue mb-4">Coming Soon</h2>
+            <p className="text-slate-400 text-lg max-w-md mx-auto">This page is under development. Content will be added by the team shortly.</p>
           </div>
-          <h2 className="text-3xl font-black text-sparkBlue mb-4">Coming Soon</h2>
-          <p className="text-slate-400 text-lg max-w-md mx-auto">This page is under development. Content will be added by the team shortly.</p>
         </div>
-      </div>
+      )}
 
       <Footer />
     </>
